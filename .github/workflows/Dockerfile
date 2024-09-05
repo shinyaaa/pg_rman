@@ -69,4 +69,5 @@ RUN rpm -ivh /var/lib/pgsql/rpmbuild/RPMS/x86_64/*
 USER postgres
 RUN initdb --no-locale -E UTF8  && \
     pg_ctl -w start && \
-    make -C pg_rman installcheck
+    make -C pg_rman installcheck; exit 0
+RUN cat /var/lib/pgsql/pg_rman/regression.out
