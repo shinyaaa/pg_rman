@@ -6,7 +6,7 @@ ARG PG_VERSION
 ARG PG_RMAN_VERSION
 
 ENV PATH=/usr/pgsql-${PG_VERSION}/bin:$PATH
-ENV PGDAT=/var/lib/pgsql/${PG_VERSION}/data
+ENV PGDATA=/var/lib/pgsql/${PG_VERSION}/data
 
 
 ################################################################################
