@@ -55,7 +55,7 @@ RUN cd pg_rman && \
         --output=../rpmbuild/SOURCES/pg_rman-${PG_RMAN_VERSION}-pg${PG_VERSION}.tar.gz
 
 # Build RPMs
-RUN rpmbuild rpmbuild/SPECS/pg_rman${PG_VERSION}.spec \
+RUN QA_RPATHS=0x0002 rpmbuild rpmbuild/SPECS/pg_rman${PG_VERSION}.spec \
         -bb --define="dist .pg${PG_VERSION}.rhel${RHEL_VERSION}"
 
 
