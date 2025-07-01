@@ -1,12 +1,12 @@
 ARG RHEL_VERSION
-FROM rockylinux/rockylinux:${RHEL_VERSION}
+FROM rockylinux/rockylinux:${RHEL_VERSION:-10}
 
 ARG RHEL_VERSION
 ARG PG_VERSION
 ARG PG_RMAN_VERSION
 
-ENV PATH /usr/pgsql-${PG_VERSION}/bin:$PATH
-ENV PGDATA /var/lib/pgsql/${PG_VERSION}/data
+ENV PATH=/usr/pgsql-${PG_VERSION}/bin:$PATH
+ENV PGDATA=/var/lib/pgsql/${PG_VERSION}/data
 
 
 ################################################################################
