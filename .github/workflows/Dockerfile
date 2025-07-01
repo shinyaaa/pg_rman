@@ -1,12 +1,12 @@
 ARG RHEL_VERSION
-FROM rockylinux/rockylinux:${RHEL_VERSION}
+FROM rockylinux/rockylinux:${RHEL_VERSION:-10}
 
 ARG RHEL_VERSION
 ARG PG_VERSION
 ARG PG_RMAN_VERSION
 
-ENV PATH /usr/pgsql-${PG_VERSION}/bin:$PATH
-ENV PGDATA /var/lib/pgsql/${PG_VERSION}/data
+ENV PATH=/usr/pgsql-${PG_VERSION}/bin:$PATH
+ENV PGDAT=/var/lib/pgsql/${PG_VERSION}/data
 
 
 ################################################################################
@@ -16,8 +16,8 @@ ENV PGDATA /var/lib/pgsql/${PG_VERSION}/data
 ################################################################################
 
 # Install packages for build
-RUN dnf update -y
-RUN dnf install -y \
+RUN dnf update -y && \
+    dnf install -y \
         clang gcc git krb5-devel libselinux-devel libzstd-devel lz4-devel make \
         openssl-devel pam-devel readline-devel rpmdevtools which zlib-devel
 
