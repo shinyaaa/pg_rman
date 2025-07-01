@@ -12,8 +12,8 @@ jobs:
       contents: write
     strategy:
       matrix:
-        RHEL_VERSION: ["9"]
-        PG_VERSION: ["13"]
+        RHEL_VERSION: ["8", "9", "10"]
+        PG_VERSION: ["13", "14", "15", "16", "17"]
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
