@@ -16,8 +16,8 @@ ENV PGDATA /var/lib/pgsql/${PG_VERSION}/data
 ################################################################################
 
 # Install packages for build
-RUN dnf update -y
-RUN dnf install -y \
+RUN dnf update -y && \
+    dnf install -y \
         clang gcc git krb5-devel libselinux-devel libzstd-devel lz4-devel make \
         openssl-devel pam-devel readline-devel rpmdevtools which zlib-devel
 
